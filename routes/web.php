@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\EcoleController;
 use App\Http\Controllers\Backend\ParametreController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -30,4 +31,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::post('/nouvelle-academie', [ParametreController::class, 'enregistrerAcademie'])
         ->name('enregistrerAcademie');
+
+    Route::post('/supprimer-academie/{academie_id}', [ParametreController::class, 'destroy'])->name('supprimerAcademie');
+
+    Route::resource('ecole', EcoleController::class);
 });

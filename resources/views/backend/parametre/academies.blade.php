@@ -49,17 +49,10 @@
                                 <td>{{ $academie->sigle }}</td>
                                 <td>{{ $academie->libelle }}</td>
                                 <td class="text-center d-flex justify-content-center">
-
-                                    <div class="d-inline pt-1">
-                                        <a href=""><i class="fas fa-edit"></i></a>
-                                    </div>
-
-                                    &nbsp;&nbsp;&nbsp; <span class="pt-1">|</span> &nbsp;
-
                                     <div class="d-inline">
-                                        <form action="" method="post">
+                                        <form action="{{ route('admin.supprimerAcademie', $academie->id) }}" method="post">
                                             @csrf
-                                            @method('DELETE')
+                                            {{-- @method('DELETE') --}}
                                             <button class="btn text-primary d-flex"><i
                                                     class="far fa-trash-alt"></i></button>
                                         </form>

@@ -28,4 +28,12 @@ class ParametreController extends Controller
 
         return to_route('admin.lesAcademies')->with('message', 'Academie enregistré avec succès !');
     }
+
+    public function destroy($academie_id)
+    {
+        $academie = Academie::find($academie_id);
+        $academie->delete();
+
+        return to_route('admin.lesAcademies')->with('message', 'Academie supprimée avec succès !');
+    }
 }
