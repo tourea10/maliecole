@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\AcademieController;
 use App\Http\Controllers\Backend\EcoleController;
 use App\Http\Controllers\Backend\ParametreController;
 use Illuminate\Support\Facades\Route;
@@ -26,13 +27,12 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->name('admin.')->group(function () {
 
-    Route::get('/les-academies', [ParametreController::class, 'lesAcademies'])
-        ->name('lesAcademies');
+    Route::prefix('parametres')->name('parametres.')->group(function () {
 
-    Route::post('/nouvelle-academie', [ParametreController::class, 'enregistrerAcademie'])
-        ->name('enregistrerAcademie');
+        Route::get('information', [ParametreController::class, 'index'])->name('index');
 
-    Route::post('/supprimer-academie/{academie_id}', [ParametreController::class, 'destroy'])->name('supprimerAcademie');
+        Route::resource('academie', AcademieController::class)->except('show', 'create', 'edit', 'update');
 
-    Route::resource('ecole', EcoleController::class);
+        Route::resource('ecole', EcoleController::class);
+    });
 });

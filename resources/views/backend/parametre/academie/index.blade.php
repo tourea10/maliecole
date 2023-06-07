@@ -50,9 +50,10 @@
                                 <td>{{ $academie->libelle }}</td>
                                 <td class="text-center d-flex justify-content-center">
                                     <div class="d-inline">
-                                        <form action="{{ route('admin.supprimerAcademie', $academie->id) }}" method="post">
+                                        <form action="{{ route('admin.parametres.academie.destroy', $academie->id) }}"
+                                            method="post">
                                             @csrf
-                                            {{-- @method('DELETE') --}}
+                                            @method('DELETE')
                                             <button class="btn text-primary d-flex"><i
                                                     class="far fa-trash-alt"></i></button>
                                         </form>
@@ -87,7 +88,7 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Nouvelle Academie</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{ route('admin.enregistrerAcademie') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('admin.parametres.academie.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
 

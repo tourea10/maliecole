@@ -18,7 +18,7 @@
                     <li>Secretaire</li>
                     <li>Informaticien</li>
                 </ul>
-                <a href="{{ route('admin.lesAcademies') }}" class="btn btn-primary btn-block"><b>Paramètres</b></a>
+                <a href="{{ route('admin.parametres.index') }}" class="btn btn-primary btn-block"><b>Paramètres</b></a>
             </div>
 
         </div>
