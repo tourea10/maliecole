@@ -6,7 +6,7 @@
         </li>
         @if (Request::is('admin/parametres/*') || Request::is('admin/parametres/academie/*'))
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Ecole</a>
+                <a href="{{ route('admin.parametres.ecole.index') }}" class="nav-link">Ecole</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link">Personnel</a>
@@ -29,7 +29,8 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                <i class="fas fa-th-large"></i>
+                {{-- <i class="fas fa-th-large"></i> --}}
+                <i class="fa-regular fa-gear"></i>
             </a>
         </li>
     </ul>

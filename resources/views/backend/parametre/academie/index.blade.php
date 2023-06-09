@@ -25,8 +25,8 @@
                 <div class="card-tools">
 
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-sm btn-primary me-2" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">
+                    <button @if ($academies->count() >= 2) hidden @endif type="button" class="btn btn-sm btn-primary me-2"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Ajouter une Academie
                     </button>
                 </div>
@@ -91,7 +91,6 @@
                 <form action="{{ route('admin.parametres.academie.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
-
                     <div class="modal-body">
                         {{-- sigle --}}
                         <div class="form-group mb-3">
@@ -121,6 +120,7 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
                         <button type="submit" class="btn btn-primary">Enregistrer</button>
                     </div>
+                </form>
             </div>
         </div>
     </div>
