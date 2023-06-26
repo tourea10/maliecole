@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\AcademieController;
+use App\Http\Controllers\Backend\CycleController;
 use App\Http\Controllers\Backend\EcoleController;
 use App\Http\Controllers\Backend\OptionController;
 use App\Http\Controllers\Backend\ParametreController;
@@ -42,5 +43,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('details-personnel/{id}', [PersonnelController::class, 'creerPersonnel'])->name('creerPersonnel');
 
         Route::resource('option', OptionController::class);
+
+        Route::resource('cycle', CycleController::class);
     });
 });
