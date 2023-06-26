@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\AcademieController;
 use App\Http\Controllers\Backend\EcoleController;
 use App\Http\Controllers\Backend\ParametreController;
+use App\Http\Controllers\Backend\PersonnelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -34,5 +35,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('academie', AcademieController::class)->except('show', 'create', 'edit', 'update');
 
         Route::resource('ecole', EcoleController::class);
+
+        Route::resource('personnel', PersonnelController::class);
+
+        Route::get('details-personnel/{id}', [PersonnelController::class, 'creerPersonnel'])->name('creerPersonnel');
     });
 });

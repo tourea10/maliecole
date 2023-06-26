@@ -35,12 +35,9 @@ class EcoleController extends Controller
     public function store(EcoleFormRequest $request)
     {
         $ecoleValide = $request->validated();
-        // dd($ecoleValide);
         if ($request->hasFile('logo')) {
-            $extension = $request->file('logo')->getClientOriginalExtension();
-            $img_logo = 'logo_' . time() . '.' . $extension;
-            $request->file('logo')->storeAs('logo', $img_logo, 'public');
-            $ecoleValide['logo'] = $img_logo;
+            $file = $request->file('logo');
+            $ecoleValide['logo'] = enregistrerImage($file, 'logo');
         } else {
             $ecoleValide['logo'] = null;
         }
@@ -66,7 +63,6 @@ class EcoleController extends Controller
     public function show(string $id)
     {
         $ecole = Ecole::findOrFail($id);
-        // dd($ecole);
         return view('backend.parametre.ecole.show', compact('ecole'));
     }
 
@@ -76,7 +72,6 @@ class EcoleController extends Controller
     public function edit(string $id)
     {
         $ecole = Ecole::findOrFail($id);
-        // dd($ecole);
         $academies = Academie::all();
         return view('backend.parametre.ecole.edit', compact('academies', 'ecole'));
     }
@@ -91,14 +86,13 @@ class EcoleController extends Controller
 
         // Suppression de l'ancien logo d'abord
         if ($ecole->logo) {
-            Storage::disk('public')->delete('logo/' . $ecole->logo);
+            supprimerImage('logo', $ecole->logo);
         }
 
+        // Ajout de la nouvelle image
         if ($request->hasFile('logo')) {
-            $extension = $request->file('logo')->getClientOriginalExtension();
-            $img_logo = 'logo_' . time() . '.' . $extension;
-            $request->file('logo')->storeAs('logo', $img_logo, 'public');
-            $ecoleValide['logo'] = $img_logo;
+            $file = $request->file('logo');
+            $ecoleValide['logo'] = enregistrerImage($file, 'logo');
         } else {
             $ecoleValide['logo'] = null;
         }
@@ -126,7 +120,7 @@ class EcoleController extends Controller
         $ecole = Ecole::findOrFail($id);
 
         // Suppression de l'ancien logo d'abord
-        Storage::disk('public')->delete('logo/' . $ecole->logo);
+        supprimerImage('logo', $ecole->logo);
 
         $ecole->delete();
 

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('statut')->default('personnel_ecole'); // super_admin et personnel_ecole
+            $table->boolean('estValide')->default(true); // pour les duree de validation
             $table->rememberToken();
             $table->timestamps();
         });
