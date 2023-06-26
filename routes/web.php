@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\AcademieController;
 use App\Http\Controllers\Backend\EcoleController;
+use App\Http\Controllers\Backend\OptionController;
 use App\Http\Controllers\Backend\ParametreController;
 use App\Http\Controllers\Backend\PersonnelController;
 use Illuminate\Support\Facades\Route;
@@ -39,5 +40,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('personnel', PersonnelController::class);
 
         Route::get('details-personnel/{id}', [PersonnelController::class, 'creerPersonnel'])->name('creerPersonnel');
+
+        Route::resource('option', OptionController::class);
     });
 });

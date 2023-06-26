@@ -7,15 +7,26 @@
         @if (Request::is('admin/parametres/*') ||
                 Request::is('admin/parametres/academie/*') ||
                 Request::is('register') ||
-                Request::is('admin/parametres/personnel/*'))
+                Request::is('admin/parametres/personnel/*') ||
+                Request::is('admin/parametres/option/*'))
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="{{ route('admin.parametres.ecole.index') }}" class="nav-link">Ecole</a>
             </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ route('admin.parametres.personnel.index') }}" class="nav-link">Personnel</a>
-            </li>
+
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="{{ route('admin.parametres.academie.index') }}" class="nav-link">Academie</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="{{ route('admin.parametres.option.index') }}" class="nav-link">Option</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#" class="nav-link">Cycle</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#" class="nav-link">Année Scolaire</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="{{ route('admin.parametres.personnel.index') }}" class="nav-link">Personnel</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link">Role & Permission</a>
