@@ -6,7 +6,7 @@
 
 @section('Contenu')
     <div class="container mx-auto mt-4">
-        <h3>Gestion des Cycles</h3>
+        <h3>Gestion des Années Scolaires</h3>
     </div>
     <div class="container  mx-auto mt-3">
 
@@ -20,11 +20,11 @@
             <div class="card-header">
                 <h3 class="card-title fw-bold">
                     <i class="fa-solid fa-school"></i>
-                    Le Cycle de l'Ecole
+                    Les periodes scolaires de l'année : <span>{{ anneeEnCours() }}</span>
                 </h3>
                 <div class="card-tools">
-                    <a href="{{ route('admin.parametres.cycle.create') }}" class="btn btn-sm btn-primary me-2">
-                        Ajouter un Cycle
+                    <a href="{{ route('admin.parametres.periode-scolaire.create') }}" class="btn btn-sm btn-primary me-2">
+                        Ajouter une periode scolaire
                     </a>
                 </div>
             </div>
@@ -34,30 +34,30 @@
                     <thead class="table-primary">
                         <tr class="fw-bolder">
                             <td>#</td>
-                            <td>Libelle</td>
-                            <td>Sigle</td>
-                            <td class="text-center">Nombre d'Année</td>
+                            <td>N° Periode</td>
+                            <td>Periode</td>
                             <td class="text-center">Action</td>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($cycles as $cycle)
+                        @forelse ($periodeScolaires as $periodeScolaire)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $cycle->libelle }}</td>
-                                <td>{{ $cycle->sigle }}</td>
-                                <td class="text-center">{{ $cycle->nombreAnnee }}</td>
-                                <td class="text-center d-flex justify-content-center">
+                                <td class="py-3">{{ $loop->iteration }}</td>
+                                <td class="py-3">{{ $periodeScolaire->numeroPeriode }}</td>
+                                <td class="py-3">{{ $periodeScolaire->periode }}</td>
+                                <td class="text-center d-flex justify-content-center align-items-center">
+
                                     {{-- Afficher --}}
                                     <div class="d-inline pt-1">
                                         <a class="btn text-primary d-flex"
-                                            href="{{ route('admin.parametres.cycle.show', $cycle->id) }}"><i
+                                            href="{{ route('admin.parametres.periode-scolaire.show', $periodeScolaire->id) }}"><i
                                                 class="fa-regular fa-eye"></i></i></a>
                                     </div>
+
                                     {{-- Editer --}}
                                     <div class="d-inline pt-1">
                                         <a class="btn text-primary d-flex"
-                                            href="{{ route('admin.parametres.cycle.edit', $cycle->id) }}">
+                                            href="{{ route('admin.parametres.periode-scolaire.edit', $periodeScolaire->id) }}">
                                             {{-- <i class="fas fa-edit"></i> --}}
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </a>
@@ -65,7 +65,8 @@
 
                                     {{-- Supprimer --}}
                                     <div class="d-inline pt-1">
-                                        <form action="{{ route('admin.parametres.cycle.destroy', $cycle->id) }}"
+                                        <form
+                                            action="{{ route('admin.parametres.periode-scolaire.destroy', $periodeScolaire->id) }}"
                                             method="post">
                                             @csrf
                                             @method('DELETE')
@@ -77,7 +78,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="4" class="h2 my-2 text-center"><i class="fa-regular fa-folder-open"></i> Pas
+                                <td colspan="6" class="h2 my-2 text-center"><i class="fa-regular fa-folder-open"></i> Pas
                                     d'element
                                     trouvé</td>
                             </tr>

@@ -35,7 +35,8 @@ CRUD</panel_attributes><additional_attributes></additional_attributes></element>
 --
 anneeScolaire_id
 numeroPeriode (1er, 2ème, 3ème)
-libelle (trimestre, semestre)
+mois
+periode (trimestre, semestre, etc)
 --
 CRUD</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>280</x><y>0</y><w>100</w><h>160</h></coordinates><panel_attributes>6_Filieres
 --

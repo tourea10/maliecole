@@ -24,7 +24,7 @@
                 </h3>
                 <div class="card-tools">
                     <a href="{{ route('admin.parametres.option.create') }}" class="btn btn-sm btn-primary me-2">
-                        Ajouter
+                        Ajouter une Option
                     </a>
                 </div>
             </div>

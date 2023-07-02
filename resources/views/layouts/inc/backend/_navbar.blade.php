@@ -9,7 +9,8 @@
                 Request::is('register') ||
                 Request::is('admin/parametres/personnel/*') ||
                 Request::is('admin/parametres/option/*') ||
-                Request::is('admin/parametres/cycle/*'))
+                Request::is('admin/parametres/cycle/*') ||
+                Request::is('admin/parametres/annee-scolaire/*'))
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="{{ route('admin.parametres.ecole.index') }}" class="nav-link">Ecole</a>
             </li>
@@ -24,7 +25,7 @@
                 <a href="{{ route('admin.parametres.cycle.index') }}" class="nav-link">Cycle</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Année Scolaire</a>
+                <a href="{{ route('admin.parametres.annee-scolaire.index') }}" class="nav-link">Année Scolaire</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="{{ route('admin.parametres.personnel.index') }}" class="nav-link">Personnel</a>

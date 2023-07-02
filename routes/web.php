@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\Backend\AcademieController;
+use App\Http\Controllers\Backend\AnneeScolaireController;
 use App\Http\Controllers\Backend\CycleController;
 use App\Http\Controllers\Backend\EcoleController;
 use App\Http\Controllers\Backend\OptionController;
 use App\Http\Controllers\Backend\ParametreController;
+use App\Http\Controllers\Backend\PeriodeScolaireController;
 use App\Http\Controllers\Backend\PersonnelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -45,5 +47,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('option', OptionController::class);
 
         Route::resource('cycle', CycleController::class);
+
+        Route::resource('annee-scolaire', AnneeScolaireController::class);
+
+        Route::resource('periode-scolaire', PeriodeScolaireController::class);
     });
 });
