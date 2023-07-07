@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('cycles', function (Blueprint $table) {
             $table->id();
-            $table->string('libelle');
-            $table->string('sigle');
+            $table->string('libelle'); // cap, bt, lycee_technique (lt), lycee_classique (lc)
+            $table->string('sigle');   //cap, bt, lc, lt
             $table->integer('nombreAnnee');
             $table->string('description')->nullable();
             $table->timestamps();

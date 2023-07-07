@@ -18,6 +18,33 @@
                     </a>
                 </li>
 
+                {{-- Maire de la mairie --}}
+                <li class="nav-item @if (Request::is('filiere/*') || Request::is('filiere')) menu-open @endif">
+                    <a href="#" class="nav-link @if (Request::is('filiere/*') || Request::is('filiere')) active @endif">
+                        <i class="nav-icon fa-solid fa-users"></i>
+                        <p>
+                            Filiere
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('filiere.create') }}"
+                                class="nav-link @if (Request::is('filiere/create')) active @endif">
+                                <i class="fa fa-plus nav-icon"></i>
+                                <p>Ajouter</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('filiere.index') }}"
+                                class="nav-link @if (Request::is('filiere')) active @endif">
+                                <i class="fa-solid fa-list-ol nav-icon"></i>
+                                <p>Les filieres</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
 
             </ul>
         </nav>

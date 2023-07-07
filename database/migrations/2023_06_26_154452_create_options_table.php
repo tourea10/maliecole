@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('options', function (Blueprint $table) {
             $table->id();
-            $table->string('libelle');
+            $table->string('libelle'); // etp-ap, etp, esg
             $table->string('sigle');
             $table->string('description')->nullable();
             $table->timestamps();
