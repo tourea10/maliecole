@@ -7,7 +7,9 @@ use App\Http\Controllers\Backend\EcoleController;
 use App\Http\Controllers\Backend\OptionController;
 use App\Http\Controllers\Backend\ParametreController;
 use App\Http\Controllers\Backend\PeriodeScolaireController;
+use App\Http\Controllers\Backend\PermissionController;
 use App\Http\Controllers\Backend\PersonnelController;
+use App\Http\Controllers\Backend\RoleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -42,6 +44,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         Route::resource('personnel', PersonnelController::class);
 
+        Route::get('utilisateurs-roles/{personnel}', [PersonnelController::class, 'creerRolePersonnel'])->name('creerRolePersonnel');
+        Route::post('utilisateurs-roles', [PersonnelController::class, 'enregistrerRolePersonnel'])->name('enregistrerRolePersonnel');
+
         Route::get('details-personnel/{id}', [PersonnelController::class, 'creerPersonnel'])->name('creerPersonnel');
 
         Route::resource('option', OptionController::class);
@@ -51,5 +56,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('annee-scolaire', AnneeScolaireController::class);
 
         Route::resource('periode-scolaire', PeriodeScolaireController::class);
+
+        Route::resource('role', RoleController::class);
+
+        Route::get('roles-et-permissions', [RoleController::class, 'liste'])->name('roleEtPermission.liste');
+
+        Route::resource('permission', PermissionController::class);
     });
 });

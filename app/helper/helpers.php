@@ -3,7 +3,9 @@
 // use DateTime;
 
 use App\Models\AnneeScolaire;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Permission\Models\Permission;
 
 // Pour Enregistrer une image dans le dossier public
 if (!function_exists('enregistrerImage')) {
@@ -53,5 +55,31 @@ if (!function_exists('idAnneeEnCours')) {
     {
         $anneeActive = AnneeScolaire::where('estActive', true)->first();
         return $anneeActive->id;
+    }
+}
+
+if (!function_exists('listeDesRoles')) {
+
+    function listeDesRoles(): array
+    {
+        $rolesListe = Role::all();
+        foreach ($rolesListe as $rolesL) {
+            $toutRole[] = $rolesL->name;
+        }
+
+        return $toutRole;
+    }
+}
+
+if (!function_exists('listeDesPermissions')) {
+
+    function listeDesPermissions(): array
+    {
+        $permissionsListe = Permission::all();
+        foreach ($permissionsListe as $permissionsL) {
+            $toutePermission[] = $permissionsL->name;
+        }
+
+        return $toutePermission;
     }
 }

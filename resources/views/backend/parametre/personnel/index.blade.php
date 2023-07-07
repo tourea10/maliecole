@@ -29,7 +29,7 @@
                         <tr class="fw-bolder">
                             <td>#</td>
                             <td>Nom complet</td>
-                            <td>Sigle</td>
+                            <td>Attributions</td>
                             <td class="text-center">Action</td>
                         </tr>
                     </thead>
@@ -38,13 +38,16 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $personnel->name }}</td>
-                                <td>{{ $personnel->email }}</td>
+                                <td>{{ implode(' | ', $personnel->getRoleNames()->toArray()) }}</td>
                                 <td class="text-center d-flex justify-content-center">
-
+                                    <div class="d-inline pt-1">
+                                        <a class="btn text-primary d-flex"
+                                            href="{{ route('admin.parametres.creerRolePersonnel', $personnel->id) }}">Role</a>
+                                    </div>
                                     <div class="d-inline pt-1">
                                         <a class="btn text-primary d-flex"
                                             href="{{ route('admin.parametres.personnel.show', $personnel->id) }}"><i
-                                                class="fa-regular fa-eye"></i></i></a>
+                                                class="fa-regular fa-eye"></i></a>
                                     </div>
                                 </td>
                             </tr>

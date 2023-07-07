@@ -31,7 +31,7 @@
                 <a href="{{ route('admin.parametres.personnel.index') }}" class="nav-link">Personnel</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Role & Permission</a>
+                <a href="{{ route('admin.parametres.roleEtPermission.liste') }}" class="nav-link">Role & Permission</a>
             </li>
         @endif
 

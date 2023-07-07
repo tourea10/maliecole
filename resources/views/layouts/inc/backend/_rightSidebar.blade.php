@@ -3,20 +3,27 @@
 
         <div class="card card-primary card-outline">
             <div class="card-body box-profile">
-                <div class="text-center">
-                    <img class="profile-user-img img-fluid img-circle"
-                        src="{{ url('storage/images/base/profile-default.jpg') }}" alt="User profile picture">
-                </div>
+                @if (Auth::user()->detailsPersonnel->photo)
+                    <div class="text-center">
+                        <img class="profile-user-img img-fluid img-circle"
+                            src="{{ url('storage/personnel/' . Auth::user()->detailsPersonnel->photo) }}"
+                            alt="User profile picture">
+                    </div>
+                @else
+                    <div class="text-center">
+                        <img class="profile-user-img img-fluid img-circle"
+                            src="{{ url('storage/images/base/profile-default.jpg') }}" alt="User profile picture">
+                    </div>
+                @endif
                 <h3 class="profile-username text-center text-black">Aboubacar TOURE</h3>
-                <p class="text-muted text-center">
-                    Software Engineer
-                    <br>Poste
-                </p>
-                <h4 class="text-black">Roles :</h4>
+                <h6 class="text-black">Roles & Permissions :</h6>
                 <ul>
-                    <li>Admin</li>
-                    <li>Secretaire</li>
-                    <li>Informaticien</li>
+                    @foreach (Auth::user()->getRoleNames() as $utilisateurRoles)
+                        <li>{{ $utilisateurRoles }}</li>
+                    @endforeach
+                    @foreach (Auth::user()->getPermissionNames() as $utilisateurPermissions)
+                        <li>{{ $utilisateurPermissions }}</li>
+                    @endforeach
                 </ul>
                 <a href="{{ route('admin.parametres.index') }}" class="btn btn-primary btn-block"><b>Paramètres</b></a>
             </div>

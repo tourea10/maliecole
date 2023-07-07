@@ -60,53 +60,56 @@
                     </div>
                     <div class="row">
                         <div class="col bg-gray py-1">
-                            <span class="fw-bold fs-5">les informations complementaires :</span>
+                            <span class="fw-bold fs-5">Gestion des Rôles et Permissions :</span>
                         </div>
                     </div>
-                    <div class="row ms-md-5 ms-sm-1">
-                        <div class="col-md-3 col-sm-12">
-                            <span class="text-gray">Date de Naissance :</span>
+                    <form action="{{ route('admin.parametres.enregistrerRolePersonnel') }}" method="post">
+                        @csrf
+                        <div class="row">
+
+                            <div class="col">
+                                <span class="fw-bold fs-5">Les Rôles:</span>
+                                {{-- <input type="checkbox" name="role" id=""> --}}
+                                <div class="row ms-md-1 mt-md-3">
+                                    @forelse ($roles as $key => $value)
+                                        <p>
+                                            <input type="checkbox"
+                                                @foreach ($personnel->getRoleNames() as $indice => $donne)
+                                                @if ($donne == $value) checked @endif @endforeach
+                                                name="role[{{ $value }}]">
+                                            {{ $value }}
+                                        </p>
+                                        {{-- <p><input type="checkbox" name="role[{{ $value }}]" id="">
+                                            {{ $value }}</p> --}}
+                                    @empty
+                                        <p>Pas d'element</p>
+                                    @endforelse
+                                </div>
+                            </div>
+
+                            <div class="col ms-md-5">
+                                <span class="fw-bold fs-5">Les Permissions :</span>
+                                <div class="row ms-md-1 mt-md-3">
+                                    @forelse ($permissions as $ke => $val)
+                                        <p>
+                                            <input type="checkbox"
+                                                @foreach ($personnel->getPermissionNames() as $index => $valeur)
+                                                @if ($valeur == $val) checked @endif @endforeach
+                                                name="permission[{{ $val }}]">
+                                            {{ $val }} des élèves
+                                        </p>
+                                    @empty
+                                    @endforelse
+                                </div>
+
+
+                                <input type="number" name="user_id" value="{{ $personnel->id }}" hidden>
+                            </div>
                         </div>
-                        <div class="col">
-                            <span class="fw-bold fs-5">
-                                @if ($detailPersonnel->dateNaissance)
-                                    {{ $detailPersonnel->dateNaissance->format('d-m-Y') }}
-                                @endif
-                            </span>
+                        <div class="row">
+                            <button type="submit" class="btn btn-primary mx-auto w-50">Valider</button>
                         </div>
-                    </div>
-                    <div class="row ms-md-5 ms-sm-1">
-                        <div class="col-md-3 col-sm-12">
-                            <span class="text-gray">Lieu de Naissance :</span>
-                        </div>
-                        <div class="col">
-                            <span class="fw-bold fs-5">{{ $detailPersonnel->lieuNaissance }}</span>
-                        </div>
-                    </div>
-                    <div class="row ms-md-5 ms-sm-1">
-                        <div class="col-md-3 col-sm-12">
-                            <span class="text-gray">Adresse :</span>
-                        </div>
-                        <div class="col">
-                            <span class="fw-bold fs-5">{{ $detailPersonnel->adresse }}</span>
-                        </div>
-                    </div>
-                    <div class="row ms-md-5 ms-sm-1">
-                        <div class="col-md-3 col-sm-12">
-                            <span class="text-gray">Groupe Sanguin :</span>
-                        </div>
-                        <div class="col">
-                            <span class="fw-bold fs-5">{{ $detailPersonnel->groupeSanguin }}</span>
-                        </div>
-                    </div>
-                    <div class="row ms-md-5 ms-sm-1">
-                        <div class="col-md-3 col-sm-12">
-                            <span class="text-gray">Signe particulier :</span>
-                        </div>
-                        <div class="col">
-                            <span class="fw-bold fs-5">{{ $detailPersonnel->signeParticulier }}</span>
-                        </div>
-                    </div>
+                    </form>
                 @else
                     <div class="mb-3">
                         <a class="text-primary d-flex fw-bold"
