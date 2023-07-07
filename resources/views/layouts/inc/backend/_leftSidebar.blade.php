@@ -12,13 +12,13 @@
 
                 {{-- Tableau de Bord --}}
                 <li class="nav-item">
-                    <a href="{{ route('home') }}" class="nav-link @if (Request::is('page-administration')) active @endif">
+                    <a href="{{ route('home') }}" class="nav-link @if (Request::is('home')) active @endif">
                         <i class="nav-icon fas fa-home"></i>
                         <p>Tableau de Bord</p>
                     </a>
                 </li>
 
-                {{-- Maire de la mairie --}}
+                {{-- Filière --}}
                 <li class="nav-item @if (Request::is('filiere/*') || Request::is('filiere')) menu-open @endif">
                     <a href="#" class="nav-link @if (Request::is('filiere/*') || Request::is('filiere')) active @endif">
                         <i class="nav-icon fa-solid fa-users"></i>
@@ -40,6 +40,33 @@
                                 class="nav-link @if (Request::is('filiere')) active @endif">
                                 <i class="fa-solid fa-list-ol nav-icon"></i>
                                 <p>Les filieres</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                {{-- Discipline --}}
+                <li class="nav-item @if (Request::is('discipline/*') || Request::is('discipline')) menu-open @endif">
+                    <a href="#" class="nav-link @if (Request::is('discipline/*') || Request::is('discipline')) active @endif">
+                        <i class="nav-icon fa-solid fa-users"></i>
+                        <p>
+                            Discipline
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('discipline.create') }}"
+                                class="nav-link @if (Request::is('discipline/create')) active @endif">
+                                <i class="fa fa-plus nav-icon"></i>
+                                <p>Ajouter</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('discipline.index') }}"
+                                class="nav-link @if (Request::is('discipline')) active @endif">
+                                <i class="fa-solid fa-list-ol nav-icon"></i>
+                                <p>Les Disciplines</p>
                             </a>
                         </li>
                     </ul>

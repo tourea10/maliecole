@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\AcademieController;
 use App\Http\Controllers\Backend\AnneeScolaireController;
 use App\Http\Controllers\Backend\CycleController;
+use App\Http\Controllers\Backend\DisciplineController;
 use App\Http\Controllers\Backend\EcoleController;
 use App\Http\Controllers\Backend\FiliereController;
 use App\Http\Controllers\Backend\OptionController;
@@ -67,3 +68,5 @@ Route::prefix('admin')->name('admin.')->group(function () {
 });
 
 Route::resource('filiere', FiliereController::class);
+
+Route::resource('discipline', DisciplineController::class);

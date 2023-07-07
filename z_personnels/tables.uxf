@@ -51,7 +51,6 @@ CRUD</panel_attributes><additional_attributes></additional_attributes></element>
 --
 sigle
 libelle
-description
 type (scientifique, litteraire)
 --
 CRUD</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>390</x><y>200</y><w>100</w><h>130</h></coordinates><panel_attributes>8_Classes
