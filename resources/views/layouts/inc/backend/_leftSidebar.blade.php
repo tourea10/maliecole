@@ -99,6 +99,33 @@
                     </ul>
                 </li>
 
+                {{-- Matiere --}}
+                <li class="nav-item @if (Request::is('matiere/*') || Request::is('matiere')) menu-open @endif">
+                    <a href="#" class="nav-link @if (Request::is('matiere/*') || Request::is('matiere')) active @endif">
+                        <i class="nav-icon fa-solid fa-users"></i>
+                        <p>
+                            Matiere
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('matiere.create') }}"
+                                class="nav-link @if (Request::is('matiere/create')) active @endif">
+                                <i class="fa fa-plus nav-icon"></i>
+                                <p>Ajouter</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('matiere.index') }}"
+                                class="nav-link @if (Request::is('matiere')) active @endif">
+                                <i class="fa-solid fa-list-ol nav-icon"></i>
+                                <p>Les matieres</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
 
             </ul>
         </nav>

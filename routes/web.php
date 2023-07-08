@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\PermissionController;
 use App\Http\Controllers\Backend\PersonnelController;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\ClasseController;
+use App\Http\Controllers\Backend\MatiereController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -73,3 +74,5 @@ Route::resource('filiere', FiliereController::class);
 Route::resource('discipline', DisciplineController::class);
 
 Route::resource('classe', ClasseController::class);
+
+Route::resource('matiere', MatiereController::class);
