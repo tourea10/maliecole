@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\PeriodeScolaireController;
 use App\Http\Controllers\Backend\PermissionController;
 use App\Http\Controllers\Backend\PersonnelController;
 use App\Http\Controllers\Backend\RoleController;
+use App\Http\Controllers\Backend\ClasseController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -70,3 +71,5 @@ Route::prefix('admin')->name('admin.')->group(function () {
 Route::resource('filiere', FiliereController::class);
 
 Route::resource('discipline', DisciplineController::class);
+
+Route::resource('classe', ClasseController::class);

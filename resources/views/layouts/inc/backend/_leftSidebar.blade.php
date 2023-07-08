@@ -23,7 +23,7 @@
                     <a href="#" class="nav-link @if (Request::is('filiere/*') || Request::is('filiere')) active @endif">
                         <i class="nav-icon fa-solid fa-users"></i>
                         <p>
-                            Filiere
+                            Filière
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -67,6 +67,33 @@
                                 class="nav-link @if (Request::is('discipline')) active @endif">
                                 <i class="fa-solid fa-list-ol nav-icon"></i>
                                 <p>Les Disciplines</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                {{-- Classe --}}
+                <li class="nav-item @if (Request::is('classe/*') || Request::is('classe')) menu-open @endif">
+                    <a href="#" class="nav-link @if (Request::is('classe/*') || Request::is('classe')) active @endif">
+                        <i class="nav-icon fa-solid fa-users"></i>
+                        <p>
+                            Classe
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('classe.create') }}"
+                                class="nav-link @if (Request::is('classe/create')) active @endif">
+                                <i class="fa fa-plus nav-icon"></i>
+                                <p>Ajouter</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('classe.index') }}"
+                                class="nav-link @if (Request::is('classe')) active @endif">
+                                <i class="fa-solid fa-list-ol nav-icon"></i>
+                                <p>Les classes</p>
                             </a>
                         </li>
                     </ul>
