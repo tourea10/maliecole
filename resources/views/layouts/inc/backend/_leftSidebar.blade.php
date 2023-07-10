@@ -13,7 +13,8 @@
                 {{-- Tableau de Bord --}}
                 <li class="nav-item">
                     <a href="{{ route('home') }}" class="nav-link @if (Request::is('home')) active @endif">
-                        <i class="nav-icon fas fa-home"></i>
+                        {{-- <i class="nav-icon fas fa-home"></i> --}}
+                        <i class="nav-icon fa-solid fa-gauge"></i>
                         <p>Tableau de Bord</p>
                     </a>
                 </li>
@@ -21,7 +22,8 @@
                 {{-- Filière --}}
                 <li class="nav-item @if (Request::is('filiere/*') || Request::is('filiere')) menu-open @endif">
                     <a href="#" class="nav-link @if (Request::is('filiere/*') || Request::is('filiere')) active @endif">
-                        <i class="nav-icon fa-solid fa-users"></i>
+                        {{-- <i class="nav-icon fa-solid fa-users"></i> --}}
+                        <i class="nav-icon fa-solid fa-sitemap"></i>
                         <p>
                             Filière
                             <i class="right fas fa-angle-left"></i>
@@ -48,7 +50,8 @@
                 {{-- Discipline --}}
                 <li class="nav-item @if (Request::is('discipline/*') || Request::is('discipline')) menu-open @endif">
                     <a href="#" class="nav-link @if (Request::is('discipline/*') || Request::is('discipline')) active @endif">
-                        <i class="nav-icon fa-solid fa-users"></i>
+                        {{-- <i class="nav-icon fa-solid fa-users"></i> --}}
+                        <i class="nav-icon fa-solid fa-book-atlas"></i>
                         <p>
                             Discipline
                             <i class="right fas fa-angle-left"></i>
@@ -75,7 +78,8 @@
                 {{-- Classe --}}
                 <li class="nav-item @if (Request::is('classe/*') || Request::is('classe')) menu-open @endif">
                     <a href="#" class="nav-link @if (Request::is('classe/*') || Request::is('classe')) active @endif">
-                        <i class="nav-icon fa-solid fa-users"></i>
+                        {{-- <i class="nav-icon fa-solid fa-users"></i> --}}
+                        <i class="nav-icon fa-solid fa-school-circle-check"></i>
                         <p>
                             Classe
                             <i class="right fas fa-angle-left"></i>
@@ -102,7 +106,8 @@
                 {{-- Matiere --}}
                 <li class="nav-item @if (Request::is('matiere/*') || Request::is('matiere')) menu-open @endif">
                     <a href="#" class="nav-link @if (Request::is('matiere/*') || Request::is('matiere')) active @endif">
-                        <i class="nav-icon fa-solid fa-users"></i>
+                        {{-- <i class="nav-icon fa-solid fa-users"></i> --}}
+                        <i class="nav-icon fa-solid fa-file-lines"></i>
                         <p>
                             Matiere
                             <i class="right fas fa-angle-left"></i>
@@ -125,6 +130,44 @@
                         </li>
                     </ul>
                 </li>
+
+                {{-- professeur --}}
+                <li class="nav-item @if (Request::is('professeur/*') || Request::is('professeur')) menu-open @endif">
+                    <a href="#" class="nav-link @if (Request::is('professeur/*') || Request::is('professeur')) active @endif">
+                        {{-- <i class="nav-icon fa-solid fa-users"></i> --}}
+                        <i class="nav-icon fa-solid fa-person-chalkboard"></i>
+                        <p>
+                            Professeur
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('professeur.create') }}"
+                                class="nav-link @if (Request::is('professeur/create')) active @endif">
+                                <i class="fa fa-plus nav-icon"></i>
+                                <p>Ajouter</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('professeur.index') }}"
+                                class="nav-link @if (Request::is('professeur')) active @endif">
+                                <i class="fa-solid fa-list-ol nav-icon"></i>
+                                <p>Les professeurs</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                {{-- Eleves --}}
+                {{-- <i class="fa-solid fa-user-graduate"></i> --}}
+
+
+                {{-- Notes --}}
+                {{-- <i class="fa-solid fa-file-pen"></i> --}}
+
+                {{-- Bulletin --}}
+                {{-- <i class="fa-solid fa-award"></i> --}}
 
 
             </ul>
